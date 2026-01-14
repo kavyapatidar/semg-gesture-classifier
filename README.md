@@ -35,6 +35,31 @@ This project implements and evaluates:
 4. Signalling Sign  
 5. Rock Sign  
 
+semg_gesture_classifier/
+│
+├── data/
+│ └── raw/
+│ ├── Session1/
+│ ├── Session2/
+│ └── Session3/
+│
+├── src/
+│ ├── dataset_builder.py
+│ ├── dataset_builder_subject.py
+│ ├── windowing.py
+│ ├── preprocessing.py
+│ ├── features.py
+│ ├── cnn_model.py
+│ ├── train_baseline.py
+│ ├── train_feature_based.py
+│ ├── train_cnn.py
+│ ├── train_subject_independent.py
+│ └── train_subject_cnn.py
+│
+├── main.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 
 ## Preprocessing Pipeline
 
@@ -75,8 +100,69 @@ To ensure realistic performance estimation and avoid subject leakage, a **subjec
 | CNN (Raw sEMG)               | Subject-Independent (LOSO) | ~72–75%  |
 
 
-## Installation and Setup
+## Installation and Setup 
 
-### Create virtual environment
-```bash
+Create Virtual Environment :
+
 python -m venv venv
+
+
+Activate Environment :
+
+Windows
+
+venv\Scripts\activate
+
+
+Linux / macOS
+
+source venv/bin/activate
+
+
+Install Dependencies
+
+pip install -r requirements.txt
+
+Running the Project
+Run Full Pipeline
+python main.py
+
+
+This will:
+
+Build datasets
+
+Train baseline, feature-based, and CNN models
+
+Perform subject-independent evaluation
+
+Print accuracy for each unseen subject
+
+Note: Subject-independent CNN evaluation is computationally intensive and may take significant time on CPU.
+
+Key Contributions
+
+Robust subject-independent EMG gesture classification
+
+Comparison of classical ML vs deep learning
+
+Practical LOSO evaluation aligned with real-world use
+
+Modular, extensible codebase
+
+Disclaimer
+
+This project was developed strictly for academic and research purposes as part of the Synapse NeuroTech Challenge. Dataset ownership and usage rights belong to the competition organizers.
+
+Author
+
+Kavya Patidar
+B.Tech – Electronics & Advanced Communication
+Maharaja Agrasen Institute of Technology
+
+Acknowledgements
+
+PARSEC 6.0, IIT Dharwad
+
+Synapse: The NeuroTech Challenge
+
